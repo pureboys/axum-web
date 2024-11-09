@@ -143,7 +143,6 @@ pub struct TicketListItem {
     pub update_at: Option<chrono::DateTime<Local>>,
 }
 
-
 pub async fn list_handle(
     State(state): State<AppState>,
     Query(query): Query<ListQuery>,
@@ -164,12 +163,5 @@ pub async fn list_handle(
     (StatusCode::OK, Json(serde_json::json!({
         "message": "ok",
         "data": rows
-    })))
-}
-
-pub async fn demo() -> impl IntoResponse {
-    (StatusCode::OK, Json(serde_json::json!({
-        "message": "ok",
-        "data": "demo"
     })))
 }
